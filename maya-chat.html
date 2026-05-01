@@ -1,41 +1,44 @@
-<!DOCTYPE html> 
+Yes. Replace your full GitHub `maya-chat.html` with this:
+
+```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maya — Scan My Shadow</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Maya - Scan My Shadow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --gold: #d4af37;
-  --gold-dim: rgba(212,175,55,0.12);
-  --gold-border: rgba(212,175,55,0.25);
-  --gold-glow: rgba(212,175,55,0.08);
-  --bg: #0e0d0f;
-  --surface: rgba(255,255,255,0.04);
-  --surface-hover: rgba(255,255,255,0.07);
-  --border: rgba(255,255,255,0.08);
-  --text: #f0eee8;
-  --muted: rgba(234,230,242,0.5);
-  --bubble-user-bg: linear-gradient(135deg, #d4af37, #b8962e);
-  --bubble-maya-bg: rgba(255,255,255,0.05);
-  --radius-lg: 20px;
-  --radius-bubble: 18px;
-  --shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.1);
+  --gold-soft: rgba(212,175,55,0.16);
+  --gold-border: rgba(212,175,55,0.28);
+  --bg: #111011;
+  --panel: rgba(19,18,18,0.96);
+  --surface: rgba(255,255,255,0.055);
+  --surface-strong: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+  --text: #f7f3e8;
+  --muted: rgba(247,243,232,0.62);
+  --soft: rgba(247,243,232,0.46);
+  --shadow: 0 34px 90px rgba(0,0,0,0.62), 0 0 0 1px rgba(212,175,55,0.12);
+  --vvh: 100dvh;
 }
 
 html, body {
-  background: transparent;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  color: var(--text);
+  width: 100%;
   height: 100%;
+  background: transparent;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15.2px;
+  color: var(--text);
   overflow: hidden;
 }
 
-/* ── FLOATING BUBBLE ── */
+/* Floating bubble */
 #chat-bubble {
   position: fixed;
   bottom: 28px;
@@ -53,16 +56,18 @@ html, body {
   animation: pulse-ring 3s ease-in-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 #chat-bubble:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 32px rgba(212,175,55,0.55);
 }
+
 #chat-bubble svg {
   width: 24px;
   height: 24px;
   fill: #000;
-  transition: opacity 0.2s;
 }
+
 #chat-bubble .close-icon { display: none; }
 #chat-bubble.open .chat-icon { display: none; }
 #chat-bubble.open .close-icon { display: block; }
@@ -72,7 +77,6 @@ html, body {
   50% { box-shadow: 0 4px 24px rgba(212,175,55,0.4), 0 0 0 10px rgba(212,175,55,0); }
 }
 
-/* ── NOTIFICATION DOT ── */
 #notif-dot {
   position: absolute;
   top: 2px;
@@ -84,20 +88,24 @@ html, body {
   border: 2px solid #0e0d0f;
   animation: dot-blink 2s ease-in-out infinite;
 }
+
 @keyframes dot-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
 
-/* ── CHAT WINDOW ── */
+/* Chat window */
 #chat-window {
   position: fixed;
   bottom: 96px;
   right: 28px;
-  width: 370px;
-  max-height: 580px;
-  background: #141214;
-  border-radius: var(--radius-lg);
+  width: 390px;
+  max-height: 590px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,175,55,0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025)),
+    var(--panel);
+  border-radius: 22px;
   box-shadow: var(--shadow);
   border: 1px solid var(--gold-border);
   display: flex;
@@ -109,39 +117,42 @@ html, body {
   pointer-events: none;
   transition: opacity 0.28s cubic-bezier(0.16,1,0.3,1), transform 0.28s cubic-bezier(0.16,1,0.3,1);
 }
+
 #chat-window.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
 }
 
-/* ── HEADER ── */
+/* Header */
 .chat-header {
-  padding: 18px 20px 16px;
+  padding: 20px 20px 17px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(212,175,55,0.06) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(255,255,255,0.015));
   flex-shrink: 0;
 }
+
 .chat-header-top {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .maya-avatar {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, #d4af37, #7a5f10);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 800;
   color: #000;
   flex-shrink: 0;
   position: relative;
 }
+
 .maya-avatar::after {
   content: '';
   position: absolute;
@@ -153,83 +164,86 @@ html, body {
   border-radius: 50%;
   border: 2px solid #141214;
 }
-.maya-info {
-  flex: 1;
-}
+
+.maya-info { flex: 1; }
+
 .maya-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 800;
   color: var(--text);
-  letter-spacing: 0.3px;
   line-height: 1;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
+
 .maya-role {
-  font-size: 11px;
+  font-size: 12.2px;
   color: var(--muted);
-  font-weight: 300;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .chat-header-sub {
-  margin-top: 10px;
-  font-size: 11.5px;
-  color: rgba(212,175,55,0.7);
-  font-weight: 400;
-  letter-spacing: 0.2px;
+  margin-top: 11px;
+  font-size: 12.8px;
+  color: rgba(247,243,232,0.64);
+  font-weight: 500;
   line-height: 1.5;
 }
 
-/* ── MESSAGES ── */
+/* Messages */
 #messages {
   flex: 1;
   overflow-y: auto;
-  padding: 16px 16px 8px;
+  padding: 17px 16px 9px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   scroll-behavior: smooth;
 }
+
 #messages::-webkit-scrollbar { width: 3px; }
 #messages::-webkit-scrollbar-track { background: transparent; }
 #messages::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 2px; }
 
 .bubble {
-  max-width: 82%;
-  padding: 10px 14px;
-  border-radius: var(--radius-bubble);
-  font-size: 13.5px;
-  line-height: 1.55;
+  max-width: 84%;
+  padding: 11px 14px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.58;
   animation: bubble-in 0.3s cubic-bezier(0.16,1,0.3,1) both;
+  white-space: pre-wrap;
 }
+
 @keyframes bubble-in {
   from { opacity: 0; transform: translateY(8px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .bubble.maya {
   align-self: flex-start;
-  background: var(--bubble-maya-bg);
+  background: rgba(255,255,255,0.055);
   border: 1px solid var(--border);
   color: var(--text);
-  border-bottom-left-radius: 5px;
-}
-.bubble.user {
-  align-self: flex-end;
-  background: var(--bubble-user-bg);
-  color: #000;
-  font-weight: 500;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 6px;
 }
 
-/* typing indicator */
+.bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #000;
+  font-weight: 700;
+  border-bottom-right-radius: 6px;
+}
+
 .typing-dots {
   display: flex;
   gap: 5px;
   align-items: center;
   padding: 12px 16px;
 }
+
 .typing-dots span {
   width: 6px;
   height: 6px;
@@ -238,65 +252,70 @@ html, body {
   opacity: 0.4;
   animation: typing 1.2s ease-in-out infinite;
 }
+
 .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
 .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
 @keyframes typing {
   0%, 100% { opacity: 0.25; transform: translateY(0); }
   50% { opacity: 0.9; transform: translateY(-3px); }
 }
 
-/* cap message */
 .cap-note {
   text-align: center;
-  font-size: 11px;
+  font-size: 12.2px;
   color: var(--muted);
-  padding: 6px 12px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 8px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
   border: 1px solid var(--border);
   margin: 4px auto;
   max-width: 90%;
 }
 
-/* ── DIVIDER ── */
 .gold-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold-border), transparent);
   flex-shrink: 0;
 }
 
-/* ── INPUT ── */
+/* Footer */
 .chat-footer {
-  padding: 12px 14px;
+  padding: 13px 14px;
   display: flex;
   gap: 10px;
   align-items: flex-end;
   flex-shrink: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.24);
 }
+
 #chat-input {
   flex: 1;
-  background: var(--surface);
+  background: rgba(255,255,255,0.055);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px 14px;
+  border-radius: 13px;
+  padding: 11px 14px;
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13.5px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
   resize: none;
   outline: none;
-  min-height: 42px;
-  max-height: 100px;
+  min-height: 44px;
+  max-height: 86px;
   line-height: 1.5;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background 0.2s;
 }
-#chat-input::placeholder { color: var(--muted); }
-#chat-input:focus { border-color: var(--gold-border); }
+
+#chat-input::placeholder { color: var(--soft); }
+#chat-input:focus {
+  border-color: var(--gold-border);
+  background: rgba(255,255,255,0.075);
+}
 
 #send-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
   background: linear-gradient(180deg, #d4af37, #b8962e);
   border: none;
   cursor: pointer;
@@ -306,12 +325,13 @@ html, body {
   flex-shrink: 0;
   transition: transform 0.15s ease, opacity 0.15s;
 }
+
 #send-btn:hover { transform: scale(1.05); }
 #send-btn:active { transform: scale(0.95); }
 #send-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
-#send-btn svg { width: 17px; height: 17px; fill: #000; }
+#send-btn svg { width: 18px; height: 18px; fill: #000; }
 
-/* ── SCAN ID GATE ── */
+/* Scan ID gate */
 #scan-id-gate {
   padding: 20px 18px;
   display: flex;
@@ -319,120 +339,153 @@ html, body {
   gap: 10px;
   flex-shrink: 0;
   border-top: 1px solid var(--border);
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.18);
 }
+
 .gate-label {
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted);
   line-height: 1.5;
 }
-.gate-label strong { color: var(--gold); font-weight: 500; }
+
+.gate-label strong { color: var(--gold); font-weight: 800; }
+
 .gate-row {
   display: flex;
   gap: 8px;
 }
+
 #scan-id-input {
   flex: 1;
-  background: var(--surface);
+  background: rgba(255,255,255,0.055);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 9px 13px;
+  border-radius: 11px;
+  padding: 10px 13px;
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14.2px;
   outline: none;
   transition: border-color 0.2s;
   letter-spacing: 1px;
+  min-width: 0;
 }
-#scan-id-input::placeholder { color: var(--muted); letter-spacing: 0; }
+
+#scan-id-input::placeholder { color: var(--soft); letter-spacing: 0; }
 #scan-id-input:focus { border-color: var(--gold-border); }
+
 #scan-id-btn {
-  padding: 9px 16px;
-  border-radius: 10px;
+  padding: 10px 16px;
+  border-radius: 11px;
   background: linear-gradient(180deg, #d4af37, #b8962e);
   border: none;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13.2px;
+  font-weight: 800;
   color: #000;
-  transition: opacity 0.15s;
 }
-#scan-id-btn:hover { opacity: 0.9; }
 
-/* ── MOBILE ── */
+/* Mobile */
 @media (max-width: 480px) {
   #chat-window {
-    right: 12px;
-    left: 12px;
+    right: 10px;
+    left: 10px;
     width: auto;
-    bottom: 80px;
-    max-height: 70vh;
+    bottom: 76px;
+    max-height: calc(var(--vvh) - 96px);
+    border-radius: 20px;
   }
-  #chat-bubble { right: 16px; bottom: 16px; }
+
+  .chat-header {
+    padding: 16px 16px 14px;
+  }
+
+  #messages {
+    padding: 14px 14px 8px;
+  }
+
+  .bubble {
+    max-width: 88%;
+    font-size: 14.6px;
+  }
+
+  .chat-footer {
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+
+  #chat-input {
+    max-height: 72px;
+    font-size: 14.8px;
+  }
+
+  #chat-bubble {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .gate-row {
+    flex-direction: column;
+  }
+
+  #scan-id-btn {
+    width: 100%;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<!-- Bubble -->
 <div id="chat-bubble" onclick="toggleChat()">
   <div id="notif-dot"></div>
+
   <svg class="chat-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95a.5.5 0 0 0 .632.632l4.782-1.388A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Zm-1 13H7.5a.5.5 0 0 1 0-1H11a.5.5 0 0 1 0 1Zm4-4H7.5a.5.5 0 0 1 0-1h7.5a.5.5 0 0 1 0 1Zm0-4H7.5a.5.5 0 0 1 0-1h7.5a.5.5 0 0 1 0 1Z"/>
   </svg>
+
   <svg class="close-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M18 6 6 18M6 6l12 12" stroke="#000" stroke-width="2.5" stroke-linecap="round" fill="none"/>
   </svg>
 </div>
 
-<!-- Chat Window -->
 <div id="chat-window">
-
-  <!-- Header -->
   <div class="chat-header">
     <div class="chat-header-top">
       <div class="maya-avatar">M</div>
       <div class="maya-info">
         <div class="maya-name">Maya</div>
-        <div class="maya-role">Privacy Assistant · Scan My Shadow</div>
+        <div class="maya-role">Privacy Assistant</div>
       </div>
     </div>
     <div class="chat-header-sub" id="header-sub">Ask me anything about your privacy, or how this works.</div>
   </div>
 
-  <!-- Messages -->
   <div id="messages"></div>
 
   <div class="gold-divider"></div>
 
-  <!-- Scan ID Gate (shown for paid users who haven't auto-identified yet) -->
   <div id="scan-id-gate" style="display:none;">
     <div class="gate-label">Have a report? Enter your <strong>Scan ID</strong> to unlock full Q&amp;A.</div>
     <div class="gate-row">
-      <input id="scan-id-input" type="text" placeholder="SMS-XXXXXX-PS" maxlength="18" autocomplete="off" spellcheck="false"/>
+      <input id="scan-id-input" type="text" placeholder="SMS-XXXXXX-PS" maxlength="18" autocomplete="off" spellcheck="false">
       <button id="scan-id-btn" onclick="submitScanId()">Verify</button>
     </div>
   </div>
 
-  <!-- Input -->
   <div class="chat-footer">
-    <textarea id="chat-input" placeholder="Type a message…" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <textarea id="chat-input" placeholder="Type a message..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
     <button id="send-btn" onclick="sendMessage()" disabled>
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"/>
       </svg>
     </button>
   </div>
-
 </div>
 
 <script>
-// ── CONFIG ──
-const WEBHOOK_VISITOR = 'https://hook.eu1.make.com/ne7fdtchxqy2ods89qg7yw0iicv05gqi'; // S0-Web — visitor handler
-const WEBHOOK_PAID    = 'https://hook.eu1.make.com/flm74p8mf9b2qu283zcyef4hdhrsjb86'; // S4-Web — paid user handler
+const WEBHOOK_VISITOR = 'https://hook.eu1.make.com/ne7fdtchxqy2ods89qg7yw0iicv05gqi';
+const WEBHOOK_PAID = 'https://hook.eu1.make.com/flm74p8mf9b2qu283zcyef4hdhrsjb86';
 
-// ── STATE ──
 let isOpen = false;
 let scanId = null;
 let messageCount = 0;
@@ -440,35 +493,46 @@ let capReached = false;
 let sessionId = null;
 let welcomeSent = false;
 
-// ── INIT ──
 function init() {
   sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
 
-  // Try to read Scan ID from parent URL or own URL
   try {
-    const parentUrl = window.location !== window.parent.location
-      ? document.referrer
-      : window.location.href;
+    const parentUrl = window.location !== window.parent.location ? document.referrer : window.location.href;
     const params = new URLSearchParams(new URL(parentUrl).search);
     const idFromUrl = params.get('id') || params.get('scan_id') || params.get('scanId');
-    if (idFromUrl && idFromUrl.startsWith('SMS-')) {
-      scanId = idFromUrl.toUpperCase();
-    }
+    if (idFromUrl && idFromUrl.startsWith('SMS-')) scanId = idFromUrl.toUpperCase();
   } catch(e) {}
 
-  // Also check own URL (for standalone testing)
   const ownParams = new URLSearchParams(window.location.search);
   const ownId = ownParams.get('id') || ownParams.get('scan_id');
-  if (ownId && ownId.startsWith('SMS-')) {
-    scanId = ownId.toUpperCase();
-  }
+  if (ownId && ownId.startsWith('SMS-')) scanId = ownId.toUpperCase();
 
+  setViewportHeight();
   enableInput();
 }
 
-// ── TOGGLE ──
+function setViewportHeight() {
+  const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  document.documentElement.style.setProperty('--vvh', height + 'px');
+}
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', setViewportHeight);
+  window.visualViewport.addEventListener('scroll', setViewportHeight);
+}
+
+window.addEventListener('resize', setViewportHeight);
+
+function notifyParent() {
+  window.parent.postMessage({
+    source: 'maya-chat',
+    state: isOpen ? 'open' : 'closed'
+  }, '*');
+}
+
 function toggleChat() {
   isOpen = !isOpen;
+
   const win = document.getElementById('chat-window');
   const bubble = document.getElementById('chat-bubble');
   const dot = document.getElementById('notif-dot');
@@ -483,39 +547,34 @@ function toggleChat() {
     win.classList.remove('visible');
     bubble.classList.remove('open');
   }
-window.parent.postMessage({
-    source: 'maya-chat',
-    state: isOpen ? 'open' : 'closed'
-  }, '*');
+
+  notifyParent();
 }
 
-// ── WELCOME ──
 function showWelcome() {
   welcomeSent = true;
   const isPaid = !!scanId;
 
   setTimeout(() => {
     if (isPaid) {
-      document.getElementById('header-sub').textContent = 'Your report assistant — ask me anything.';
-      addBubble('maya', `🙏 Namaste! I'm Maya.\n\nI can see you have a report with us. Ask me anything — what a finding means, whether something is serious, or what to do next.`);
+      document.getElementById('header-sub').textContent = 'Your report assistant. Ask me anything.';
+      addBubble('maya', "Namaste. I can see you have a report with us.\n\nAsk me what a finding means, whether something is serious, or what to do next.");
     } else {
-      addBubble('maya', `🙏 Namaste! I'm Maya.\n\nI can answer any questions you have about Scan My Shadow — how it works, what we scan, or what happens to your data.\n\nWhat would you like to know?`);
+      addBubble('maya', "Namaste. I am Maya.\n\nI can answer questions about Scan My Shadow, how it works, what we scan, and what happens to your data.\n\nWhat would you like to know?");
     }
   }, 400);
 }
 
-// ── ADD BUBBLE ──
 function addBubble(role, text) {
   const msgs = document.getElementById('messages');
   const div = document.createElement('div');
-  div.className = `bubble ${role}`;
+  div.className = 'bubble ' + role;
   div.textContent = text;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   return div;
 }
 
-// ── TYPING INDICATOR ──
 function showTyping() {
   const msgs = document.getElementById('messages');
   const div = document.createElement('div');
@@ -525,12 +584,12 @@ function showTyping() {
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 }
+
 function hideTyping() {
   const t = document.getElementById('typing');
   if (t) t.remove();
 }
 
-// ── SEND ──
 async function sendMessage() {
   const input = document.getElementById('chat-input');
   const text = input.value.trim();
@@ -555,6 +614,7 @@ async function sendMessage() {
     };
 
     const WEBHOOK = scanId ? WEBHOOK_PAID : WEBHOOK_VISITOR;
+
     const res = await fetch(WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -564,54 +624,54 @@ async function sendMessage() {
     const data = await res.json();
     hideTyping();
 
-    const reply = data.reply || data.message || 'I\'m sorry, I couldn\'t process that. Please try again.';
+    const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
     if (data.cap_reached || messageCount >= (scanId ? 5 : 3)) {
       capReached = true;
       showCapNote();
     }
-
   } catch(e) {
     hideTyping();
     addBubble('maya', 'Something went wrong on my end. Please try again in a moment.');
   }
 
   setInputLocked(false);
+
   if (!capReached) {
     document.getElementById('send-btn').disabled = false;
     document.getElementById('chat-input').focus();
   }
 }
 
-// ── CAP ──
 function showCapNote() {
   const msgs = document.getElementById('messages');
   const note = document.createElement('div');
   note.className = 'cap-note';
-  note.textContent = 'That\'s all for now. For further help, email support@scanmyshadow.com';
+  note.textContent = "That is all for now. For further help, email support@scanmyshadow.com";
   msgs.appendChild(note);
   msgs.scrollTop = msgs.scrollHeight;
   setInputLocked(true);
   document.getElementById('send-btn').disabled = true;
 }
 
-// ── SCAN ID GATE ──
 function submitScanId() {
-  const val = document.getElementById('scan-id-input').value.trim().toUpperCase();
+  const input = document.getElementById('scan-id-input');
+  const val = input.value.trim().toUpperCase();
+
   if (!val.startsWith('SMS-') || val.length < 10) {
-    document.getElementById('scan-id-input').style.borderColor = '#e05c5c';
-    setTimeout(() => document.getElementById('scan-id-input').style.borderColor = '', 1500);
+    input.style.borderColor = '#e05c5c';
+    setTimeout(() => input.style.borderColor = '', 1500);
     return;
   }
+
   scanId = val;
   document.getElementById('scan-id-gate').style.display = 'none';
-  document.getElementById('header-sub').textContent = 'Your report assistant — ask me anything.';
-  addBubble('maya', `🙏 Namaste! Scan ID verified ✓\n\nAsk me anything about your report — what a finding means, how serious something is, or what to do next.`);
+  document.getElementById('header-sub').textContent = 'Your report assistant. Ask me anything.';
+  addBubble('maya', "Scan ID verified.\n\nAsk me anything about your report, what a finding means, how serious something is, or what to do next.");
   enableInput();
 }
 
-// ── HELPERS ──
 function enableInput() {
   const input = document.getElementById('chat-input');
   input.addEventListener('input', () => {
@@ -622,7 +682,7 @@ function enableInput() {
 function setInputLocked(locked) {
   const input = document.getElementById('chat-input');
   input.disabled = locked;
-  if (!locked) input.focus();
+  if (!locked && isOpen) input.focus();
 }
 
 function handleKey(e) {
@@ -634,11 +694,12 @@ function handleKey(e) {
 
 function autoResize(el) {
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+  const max = window.innerWidth <= 480 ? 72 : 86;
+  el.style.height = Math.min(el.scrollHeight, max) + 'px';
 }
 
-// ── START ──
 init();
 </script>
 </body>
 </html>
+```
