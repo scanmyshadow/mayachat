@@ -483,6 +483,10 @@ function toggleChat() {
     win.classList.remove('visible');
     bubble.classList.remove('open');
   }
+window.parent.postMessage({
+    source: 'maya-chat',
+    state: isOpen ? 'open' : 'closed'
+  }, '*');
 }
 
 // ── WELCOME ──
