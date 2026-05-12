@@ -491,7 +491,15 @@ let sessionId = null;
 let welcomeSent = false;
 
 function init() {
-  sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+  const SESSION_TTL = 24 * 60 * 60 * 1000;
+
+  const stored = JSON.parse(localStorage.getItem('maya_session') || 'null');
+  if (stored && (Date.now() - stored.ts) < SESSION_TTL) {
+    sessionId = stored.id;
+  } else {
+    sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+    localStorage.setItem('maya_session', JSON.stringify({ id: sessionId, ts: Date.now() }));
+  }
 
   try {
     const parentUrl = window.location !== window.parent.location ? document.referrer : window.location.href;
@@ -624,7 +632,7 @@ async function sendMessage() {
     const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
-    if (data.cap_reached || messageCount >= (scanId ? 5 : 3)) {
+    if (data.cap_reached || messageCount >= 5) {
       capReached = true;
       showCapNote();
     }
