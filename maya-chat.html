@@ -97,6 +97,7 @@ html, body {
   bottom: 96px;
   right: 28px;
   width: 390px;
+  max-width: calc(100vw - 48px); /* FIX 3: prevents right-side overflow on any screen */
   max-height: 590px;
   background:
     radial-gradient(circle at 50% 0%, rgba(212,175,55,0.08), transparent 42%),
@@ -211,6 +212,8 @@ html, body {
   line-height: 1.58;
   animation: bubble-in 0.3s cubic-bezier(0.16,1,0.3,1) both;
   white-space: pre-wrap;
+  overflow-wrap: break-word; /* FIX 1: prevents long URLs from breaking out of bubble */
+  word-break: break-word;
 }
 
 @keyframes bubble-in {
@@ -483,6 +486,13 @@ html, body {
 const WEBHOOK_VISITOR = 'https://hook.eu1.make.com/ne7fdtchxqy2ods89qg7yw0iicv05gqi';
 const WEBHOOK_PAID = 'https://hook.eu1.make.com/flm74p8mf9b2qu283zcyef4hdhrsjb86';
 
+// FIX 2: Vague opener patterns — handled client-side, no Make call consumed
+const HINDI_VAGUE = ['karna kya hai', 'kya karna hai', 'kya karna', 'kya hai ye', 'kya hai yeh', 'batao', 'bolo', 'samjhao', 'kya kare', 'kya karu', 'kaise kare', 'kaise karu', 'kya hoga'];
+const ENGLISH_VAGUE = ['what to do', 'what is this', 'what can you do', 'how does this work', 'tell me more', 'explain this'];
+
+const VAGUE_REPLY_HINDI = "Main Maya hoon — Scan My Shadow ki Privacy Assistant. 😊\n\nAap mujhse ye pooch sakte ho:\n• Scan kaise kaam karta hai?\n• Phone, email, ya photo — kya scan hoga?\n• Report kitne time mein milegi?\n• Kya mera data safe rahega?\n• Pricing kya hai?\n\nKya jaanna chahte ho?";
+const VAGUE_REPLY_ENGLISH = "I'm Maya, Scan My Shadow's Privacy Assistant. 😊\n\nYou can ask me:\n• How the scan works\n• What gets scanned — phone, email, or photo\n• How long the report takes\n• How your data is kept safe\n• Pricing\n\nWhat would you like to know?";
+
 let isOpen = false;
 let scanId = null;
 let messageCount = 0;
@@ -491,15 +501,7 @@ let sessionId = null;
 let welcomeSent = false;
 
 function init() {
-  const SESSION_TTL = 24 * 60 * 60 * 1000;
-
-  const stored = JSON.parse(localStorage.getItem('maya_session') || 'null');
-  if (stored && (Date.now() - stored.ts) < SESSION_TTL) {
-    sessionId = stored.id;
-  } else {
-    sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-    localStorage.setItem('maya_session', JSON.stringify({ id: sessionId, ts: Date.now() }));
-  }
+  sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
 
   try {
     const parentUrl = window.location !== window.parent.location ? document.referrer : window.location.href;
@@ -574,7 +576,7 @@ function addBubble(role, text) {
   const msgs = document.getElementById('messages');
   const div = document.createElement('div');
   div.className = 'bubble ' + role;
-  div.textContent = text.replace(/\\n/g, '\n');
+  div.textContent = text;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   return div;
@@ -605,6 +607,25 @@ async function sendMessage() {
   document.getElementById('send-btn').disabled = true;
 
   addBubble('user', text);
+
+  // FIX 2: Intercept vague openers on first message — respond client-side, don't call Make
+  if (messageCount === 0) {
+    const lower = text.toLowerCase().trim();
+    const isHindiVague = HINDI_VAGUE.some(p => lower.includes(p));
+    const isEnglishVague = ENGLISH_VAGUE.some(p => lower.includes(p));
+    if (isHindiVague || isEnglishVague) {
+      showTyping();
+      setInputLocked(true);
+      setTimeout(() => {
+        hideTyping();
+        addBubble('maya', isHindiVague ? VAGUE_REPLY_HINDI : VAGUE_REPLY_ENGLISH);
+        setInputLocked(false);
+        document.getElementById('send-btn').disabled = false;
+      }, 700);
+      return; // messageCount stays 0 — doesn't consume a slot
+    }
+  }
+
   messageCount++;
 
   showTyping();
@@ -632,7 +653,7 @@ async function sendMessage() {
     const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
-    if (data.cap_reached || messageCount >= 5) {
+    if (data.cap_reached || messageCount >= (scanId ? 5 : 3)) {
       capReached = true;
       showCapNote();
     }
