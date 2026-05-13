@@ -467,7 +467,7 @@ html, body {
   <div id="scan-id-gate" style="display:none;">
     <div class="gate-label">Have a report? Enter your <strong>Scan ID</strong> to unlock full Q&amp;A.</div>
     <div class="gate-row">
-      <input id="scan-id-input" type="text" placeholder="SMS-XXXXXX-PS" maxlength="18" autocomplete="off" spellcheck="false">
+      <input id="scan-id-input" type="text" placeholder="pay_XXXXXXXXXXXXXXXXXX" maxlength="24" autocomplete="off" spellcheck="false">
       <button id="scan-id-btn" onclick="submitScanId()">Verify</button>
     </div>
   </div>
@@ -484,7 +484,7 @@ html, body {
 
 <script>
 const WEBHOOK_VISITOR = 'https://hook.eu1.make.com/ne7fdtchxqy2ods89qg7yw0iicv05gqi';
-const WEBHOOK_PAID = 'https://hook.eu1.make.com/flm74p8mf9b2qu283zcyef4hdhrsjb86';
+const WEBHOOK_PAID = 'https://hook.eu1.make.com/7v48jh51apnhvk5nqdadfn1w7kei2ufb';
 
 // FIX 2: Vague opener patterns — handled client-side, no Make call consumed
 const HINDI_VAGUE = ['karna kya hai', 'kya karna hai', 'kya karna', 'kya hai ye', 'kya hai yeh', 'batao', 'bolo', 'samjhao', 'kya kare', 'kya karu', 'kaise kare', 'kaise karu', 'kya hoga'];
@@ -507,12 +507,12 @@ function init() {
     const parentUrl = window.location !== window.parent.location ? document.referrer : window.location.href;
     const params = new URLSearchParams(new URL(parentUrl).search);
     const idFromUrl = params.get('id') || params.get('scan_id') || params.get('scanId');
-    if (idFromUrl && idFromUrl.startsWith('SMS-')) scanId = idFromUrl.toUpperCase();
+    if (idFromUrl && idFromUrl.startsWith('pay_')) scanId = idFromUrl;
   } catch(e) {}
 
   const ownParams = new URLSearchParams(window.location.search);
   const ownId = ownParams.get('id') || ownParams.get('scan_id');
-  if (ownId && ownId.startsWith('SMS-')) scanId = ownId.toUpperCase();
+  if (ownId && ownId.startsWith('pay_')) scanId = ownId;
 
   setViewportHeight();
   enableInput();
@@ -653,7 +653,7 @@ async function sendMessage() {
     const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
-    if (data.cap_reached || messageCount >= (scanId ? 5 : 3)) {
+    if (data.cap_reached || (!scanId && messageCount >= 5)) {
       capReached = true;
       showCapNote();
     }
@@ -683,9 +683,9 @@ function showCapNote() {
 
 function submitScanId() {
   const input = document.getElementById('scan-id-input');
-  const val = input.value.trim().toUpperCase();
+  const val = input.value.trim();
 
-  if (!val.startsWith('SMS-') || val.length < 10) {
+  if (!val.startsWith('PAY_') || val.length < 10) {
     input.style.borderColor = '#e05c5c';
     setTimeout(() => input.style.borderColor = '', 1500);
     return;
