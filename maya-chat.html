@@ -636,7 +636,8 @@ async function sendMessage() {
       session_id: sessionId,
       scan_id: scanId || null,
       message: text,
-      message_count: messageCount
+      message_count: messageCount,
+      message_type: 'Text'
     };
 
     const WEBHOOK = scanId ? WEBHOOK_PAID : WEBHOOK_VISITOR;
