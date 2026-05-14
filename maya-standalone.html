@@ -557,7 +557,7 @@ async function sendMessage() {
     const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
-    if (data.cap_reached || messageCount >= (scanId ? 5 : 3)) {
+    if (data.cap_reached || messageCount >= 25) {
       capReached = true;
       showCapNote();
     }
@@ -577,7 +577,7 @@ function showCapNote() {
   const msgs = document.getElementById('messages');
   const note = document.createElement('div');
   note.className = 'cap-note';
-  note.textContent = "That is all for now. For further help, email support@scanmyshadow.com";
+  note.innerHTML = 'That is all for now. For further help, check our <a href="https://www.scanmyshadow.com/#embed01" target="_blank" style="color:var(--gold);text-decoration:underline;">FAQ section</a> or email us at support@scanmyshadow.com';
   msgs.appendChild(note);
   msgs.scrollTop = msgs.scrollHeight;
   setInputLocked(true);
