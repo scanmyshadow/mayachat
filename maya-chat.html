@@ -654,7 +654,7 @@ async function sendMessage() {
     const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
     addBubble('maya', reply);
 
-    if (data.cap_reached || (!scanId && messageCount >= 5)) {
+    if (data.cap_reached || messageCount >= 25) {
       capReached = true;
       showCapNote();
     }
@@ -675,7 +675,7 @@ function showCapNote() {
   const msgs = document.getElementById('messages');
   const note = document.createElement('div');
   note.className = 'cap-note';
-  note.textContent = "That is all for now. For further help, email support@scanmyshadow.com";
+  note.innerHTML = 'That is all for now. For further help, check our <a href="https://www.scanmyshadow.com/#embed01" target="_blank" style="color:var(--gold);text-decoration:underline;">FAQ section</a> or email us at support@scanmyshadow.com';
   msgs.appendChild(note);
   msgs.scrollTop = msgs.scrollHeight;
   setInputLocked(true);
@@ -686,7 +686,7 @@ function submitScanId() {
   const input = document.getElementById('scan-id-input');
   const val = input.value.trim();
 
-  if (!val.startsWith('PAY_') || val.length < 10) {
+  if (!val.startsWith('pay_') || val.length < 10) {
     input.style.borderColor = '#e05c5c';
     setTimeout(() => input.style.borderColor = '', 1500);
     return;
