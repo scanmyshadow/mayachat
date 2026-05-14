@@ -554,16 +554,16 @@ async function sendMessage() {
     const data = await res.json();
     hideTyping();
 
-    const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
-    addBubble('maya', reply);
-
     if (data.cap_reached || messageCount >= 25) {
       capReached = true;
       showCapNote();
+    } else {
+      const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
+      addBubble('maya', reply);
     }
   } catch(e) {
     hideTyping();
-    addBubble('maya', 'Something went wrong on my end. Please try again in a moment.');
+    addBubble('maya', "I'm sorry, could you repeat that?");
   }
 
   setInputLocked(false);
