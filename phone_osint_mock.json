@@ -1,0 +1,111 @@
+{
+  "status": "found",
+  "query": "+91XXXXXXXXXX",
+  "type": "phone",
+  "name": "Scan My Shadow",
+  "platform_count": 7,
+  "breach_count": 0,
+  "platforms": [
+    {
+      "name": "WhatsApp"
+    },
+    {
+      "name": "Facebook"
+    },
+    {
+      "name": "TrueCaller"
+    },
+    {
+      "name": "Instagram"
+    },
+    {
+      "name": "Microsoft"
+    },
+    {
+      "name": "Eyecon"
+    },
+    {
+      "name": "Walkie Talkie"
+    }
+  ],
+  "breaches": [],
+  "fields": [
+    {
+      "label": "Business Name",
+      "value": "Scan My Shadow"
+    },
+    {
+      "label": "Last Seen",
+      "value": "12 Nov 2025"
+    },
+    {
+      "label": "Username Found",
+      "value": "DukeNukem"
+    },
+    {
+      "label": "Email on WhatsApp",
+      "value": "support@scanmyshadow.com"
+    }
+  ],
+  "stats": {
+    "registered_modules": 1,
+    "breached_modules": 0,
+    "detailed_modules": 7,
+    "total_events": 3,
+    "unique_names": 1,
+    "unique_usernames": 1,
+    "account_hints": 1,
+    "caller_id_entries": 1,
+    "earliest_year": 2019,
+    "years_of_history": 6
+  },
+  "events": [
+    {
+      "date": "12 Nov 2025",
+      "source": "WhatsApp",
+      "content": "Last seen"
+    },
+    {
+      "date": "14 Jul 2022",
+      "source": "Walkie Talkie",
+      "content": "Account Registered"
+    },
+    {
+      "date": "12 Aug 2019",
+      "source": "WhatsApp",
+      "content": "Profile Picture Updated"
+    }
+  ],
+  "caller_id": [
+    {
+      "app_name": "TrueCaller",
+      "display_name": "Scan My Shadow",
+      "tag": "Business"
+    }
+  ],
+  "hints": [
+    {
+      "type": "Email",
+      "source": "WhatsApp Business",
+      "value": "support@scanmyshadow.com",
+      "explain": "Business email linked to this phone number"
+    }
+  ],
+  "also_registered": [],
+  "year_groups": [
+    {
+      "year": 2019,
+      "count": 1
+    },
+    {
+      "year": 2022,
+      "count": 1
+    },
+    {
+      "year": 2025,
+      "count": 1
+    }
+  ],
+  "removal_account_guides": [],
+  "removal_breach_guides": []
+}

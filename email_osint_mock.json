@@ -1,0 +1,306 @@
+{
+  "status": "found",
+  "query": "test@scanmyshadow.com",
+  "type": "email",
+  "name": "Scan My Shadow",
+  "platform_count": 10,
+  "breach_count": 5,
+  "platforms": [
+    {
+      "name": "Google"
+    },
+    {
+      "name": "Microsoft"
+    },
+    {
+      "name": "LinkedIn"
+    },
+    {
+      "name": "Dropbox"
+    },
+    {
+      "name": "Upwork"
+    },
+    {
+      "name": "Trello"
+    },
+    {
+      "name": "Flickr"
+    },
+    {
+      "name": "Gravatar"
+    },
+    {
+      "name": "AliExpress"
+    },
+    {
+      "name": "PayPal"
+    }
+  ],
+  "breaches": [
+    {
+      "name": "TXTBASE",
+      "date": "Feb 2025",
+      "records": "284,132,969",
+      "severity": "high",
+      "description": "Stealer log credential dump. Contains email and password pairs.",
+      "source_url": ""
+    },
+    {
+      "name": "Data Troll",
+      "date": "Jun 2025",
+      "records": "109,532,219",
+      "severity": "high",
+      "description": "Stealer log credential dump. Contains email and password pairs.",
+      "source_url": ""
+    },
+    {
+      "name": "Synthient",
+      "date": "Apr 2025",
+      "records": "182,962,095",
+      "severity": "medium",
+      "description": "Credential stuffing database. Email and password combinations.",
+      "source_url": ""
+    },
+    {
+      "name": "SoundCloud",
+      "date": "Dec 2025",
+      "records": "29,815,722",
+      "severity": "medium",
+      "description": "Music platform breach. Emails, usernames, geographic locations exposed.",
+      "source_url": "https://soundcloud.com"
+    },
+    {
+      "name": "Raaga.com",
+      "date": "Dec 2025",
+      "records": "10,225,145",
+      "severity": "low",
+      "description": "Indian music streaming platform. Emails, dates of birth, names exposed.",
+      "source_url": "https://raaga.com"
+    }
+  ],
+  "fields": [
+    {
+      "label": "Full Name",
+      "value": "Siddharth Shankar"
+    },
+    {
+      "label": "Location",
+      "value": "Gwalior, Madhya Pradesh, India"
+    },
+    {
+      "label": "Username",
+      "value": "dukenukem696"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/siddharth-shankar-502079100"
+    },
+    {
+      "label": "Phone Hint",
+      "value": "****** ***85"
+    }
+  ],
+  "stats": {
+    "registered_modules": 22,
+    "breached_modules": 26,
+    "detailed_modules": 19,
+    "total_events": 114,
+    "unique_ids": 9,
+    "unique_names": 8,
+    "unique_usernames": 6,
+    "total_locations": 71,
+    "earliest_year": 2012,
+    "years_of_history": 13,
+    "unique_cities": 3
+  },
+  "identity": {
+    "names": [
+      "Siddharth Shankar",
+      "siddharth gupta",
+      "Sid",
+      "BuzzBringer"
+    ],
+    "usernames": [
+      "dukenukem696",
+      "murrdoc",
+      "ackhnemedes",
+      "murdochguevara",
+      "Siddharth_Shankar"
+    ],
+    "ids": [
+      {
+        "id": "116348476156641451962",
+        "platform": "Google"
+      },
+      {
+        "id": "424258447492284416",
+        "platform": "Upwork"
+      }
+    ],
+    "bios": [
+      "Puzzle Master",
+      "Here's what's what!",
+      "Founder & Director"
+    ],
+    "social_connections": [
+      "google"
+    ],
+    "auth_providers": [
+      "Google",
+      "Apple",
+      "Password"
+    ]
+  },
+  "locations": [
+    {
+      "platform": "Google Maps",
+      "lat": "30.1238",
+      "lng": "78.3289",
+      "address": "Near Dharamraj Mandir, Yamkeshwar, Uttarakhand",
+      "city": "Rishikesh",
+      "date": "25 Oct 2025",
+      "title": "Google Maps Review",
+      "subtitle": "At Namaste Ayurvedas Centre",
+      "comment": "Awesome is the word! Go for it!!!",
+      "source_url": ""
+    },
+    {
+      "platform": "Google Maps",
+      "lat": "26.2062",
+      "lng": "78.1955",
+      "address": "Anupam Nagar, Gwalior, Madhya Pradesh",
+      "city": "Gwalior",
+      "date": "10 Jul 2025",
+      "title": "Google Maps Review",
+      "subtitle": "At J P Associates",
+      "comment": "",
+      "source_url": ""
+    }
+  ],
+  "events": [
+    {
+      "date": "8 Mar 2026",
+      "source": "Google",
+      "content": "Last seen"
+    },
+    {
+      "date": "5 Mar 2026",
+      "source": "Microsoft",
+      "content": "Last seen"
+    },
+    {
+      "date": "25 Oct 2025",
+      "source": "Google Maps",
+      "content": "Review posted: Awesome is the word! Go for it!!!"
+    },
+    {
+      "date": "9 Sep 2012",
+      "source": "Microsoft",
+      "content": "Account created"
+    }
+  ],
+  "also_registered": [
+    {
+      "name": "Freelancer"
+    },
+    {
+      "name": "Pinterest"
+    },
+    {
+      "name": "Twitter"
+    },
+    {
+      "name": "Instagram"
+    },
+    {
+      "name": "Spotify"
+    },
+    {
+      "name": "Naukri"
+    },
+    {
+      "name": "WordPress"
+    },
+    {
+      "name": "Tumblr"
+    }
+  ],
+  "city_groups": [
+    {
+      "city": "Gwalior",
+      "count": 3
+    },
+    {
+      "city": "Pushkar",
+      "count": 2
+    },
+    {
+      "city": "Rishikesh",
+      "count": 1
+    }
+  ],
+  "year_groups": [
+    {
+      "year": 2012,
+      "count": 1
+    },
+    {
+      "year": 2014,
+      "count": 1
+    },
+    {
+      "year": 2017,
+      "count": 1
+    },
+    {
+      "year": 2019,
+      "count": 2
+    },
+    {
+      "year": 2024,
+      "count": 1
+    },
+    {
+      "year": 2025,
+      "count": 5
+    },
+    {
+      "year": 2026,
+      "count": 2
+    }
+  ],
+  "removal_account_guides": [
+    {
+      "platform": "Google",
+      "platform_url": "https://myaccount.google.com",
+      "link": "https://support.google.com/accounts/answer/32046",
+      "difficulty": "Easy",
+      "time": "5 min",
+      "removes": "Google account and associated data",
+      "escalation": "Contact Google support if unable to delete"
+    },
+    {
+      "platform": "LinkedIn",
+      "platform_url": "https://linkedin.com",
+      "link": "https://www.linkedin.com/help/linkedin/answer/63",
+      "difficulty": "Easy",
+      "time": "5 min",
+      "removes": "LinkedIn profile and connections",
+      "escalation": "Email privacy@linkedin.com"
+    }
+  ],
+  "removal_breach_guides": [
+    {
+      "breach_name": "TXTBASE",
+      "platform": "TXTBASE",
+      "platform_url": "",
+      "link": "https://haveibeenpwned.com/",
+      "difficulty": "Hard",
+      "time": "N/A",
+      "removes": "Cannot remove from stealer logs \u2014 change all passwords immediately",
+      "escalation": "Enable 2FA on all accounts"
+    }
+  ],
+  "maps_api_key": "PASTE_GOOGLE_MAPS_API_KEY"
+}
