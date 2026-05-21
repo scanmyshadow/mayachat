@@ -1,51 +1,71 @@
 {
   "status": "found",
-  "query": "+91XXXXXXXXXX",
+  "query": "+917024398885",
   "type": "phone",
+  "phone_number": "7024398885",
   "name": "Scan My Shadow",
   "platform_count": 7,
   "breach_count": 0,
   "platforms": [
     {
-      "name": "WhatsApp"
+      "name": "WhatsApp",
+      "domain": "whatsapp.com",
+      "registered": true,
+      "fields": [
+        { "label": "Display Name", "value": "Scan My Shadow" },
+        { "label": "Tag", "value": "Business" },
+        { "label": "Email on Account", "value": "support@scanmyshadow.com" },
+        { "label": "Last Seen", "value": "12 Nov 2025" }
+      ]
     },
     {
-      "name": "Facebook"
+      "name": "Facebook",
+      "domain": "facebook.com",
+      "registered": true,
+      "fields": []
     },
     {
-      "name": "TrueCaller"
+      "name": "TrueCaller",
+      "domain": "truecaller.com",
+      "registered": true,
+      "fields": [
+        { "label": "Display Name", "value": "Scan My Shadow" },
+        { "label": "Tag", "value": "Business" }
+      ]
     },
     {
-      "name": "Instagram"
+      "name": "Instagram",
+      "domain": "instagram.com",
+      "registered": true,
+      "fields": []
     },
     {
-      "name": "Microsoft"
+      "name": "Microsoft",
+      "domain": "microsoft.com",
+      "registered": true,
+      "fields": []
     },
     {
-      "name": "Eyecon"
+      "name": "Eyecon",
+      "domain": "eyecon.mobi",
+      "registered": true,
+      "fields": []
     },
     {
-      "name": "Walkie Talkie"
+      "name": "Walkie Talkie",
+      "domain": "walkietalkie.live",
+      "registered": true,
+      "fields": [
+        { "label": "Account Registered", "value": "14 Jul 2022" }
+      ]
     }
   ],
   "breaches": [],
   "fields": [
-    {
-      "label": "Business Name",
-      "value": "Scan My Shadow"
-    },
-    {
-      "label": "Last Seen",
-      "value": "12 Nov 2025"
-    },
-    {
-      "label": "Username Found",
-      "value": "DukeNukem"
-    },
-    {
-      "label": "Email on WhatsApp",
-      "value": "support@scanmyshadow.com"
-    }
+    { "label": "Business Name", "value": "Scan My Shadow" },
+    { "label": "Last Seen", "value": "12 Nov 2025" },
+    { "label": "Username Found", "value": "DukeNukem" },
+    { "label": "Email on WhatsApp", "value": "support@scanmyshadow.com" }
   ],
   "stats": {
     "registered_modules": 1,
@@ -59,28 +79,26 @@
     "earliest_year": 2019,
     "years_of_history": 6
   },
-  "events": [
-    {
-      "date": "12 Nov 2025",
-      "source": "WhatsApp",
-      "content": "Last seen"
-    },
-    {
-      "date": "14 Jul 2022",
-      "source": "Walkie Talkie",
-      "content": "Account Registered"
-    },
-    {
-      "date": "12 Aug 2019",
-      "source": "WhatsApp",
-      "content": "Profile Picture Updated"
-    }
-  ],
+  "identity": {
+    "names": ["Scan My Shadow"],
+    "usernames": ["DukeNukem"],
+    "ids": [],
+    "bios": [],
+    "social_connections": [],
+    "auth_providers": []
+  },
   "caller_id": [
     {
       "app_name": "TrueCaller",
+      "domain": "truecaller.com",
       "display_name": "Scan My Shadow",
       "tag": "Business"
+    },
+    {
+      "app_name": "Eyecon",
+      "domain": "eyecon.mobi",
+      "display_name": "Scan My Shadow",
+      "tag": ""
     }
   ],
   "hints": [
@@ -91,21 +109,18 @@
       "explain": "Business email linked to this phone number"
     }
   ],
+  "events": [
+    { "date": "12 Nov 2025", "source": "WhatsApp", "content": "Last seen" },
+    { "date": "14 Jul 2022", "source": "Walkie Talkie", "content": "Account Registered" },
+    { "date": "12 Aug 2019", "source": "WhatsApp", "content": "Profile Picture Updated" }
+  ],
   "also_registered": [],
   "year_groups": [
-    {
-      "year": 2019,
-      "count": 1
-    },
-    {
-      "year": 2022,
-      "count": 1
-    },
-    {
-      "year": 2025,
-      "count": 1
-    }
+    { "year": 2019, "count": 1 },
+    { "year": 2022, "count": 1 },
+    { "year": 2025, "count": 1 }
   ],
+  "city_groups": [],
   "removal_account_guides": [],
   "removal_breach_guides": []
 }
