@@ -1,105 +1,314 @@
 {
   "status": "found",
-  "query": "test@scanmyshadow.com",
+  "query": "siddharth311@gmail.com",
   "type": "email",
-  "name": "Scan My Shadow",
-  "platform_count": 10,
-  "breach_count": 5,
+  "email_address": "siddharth311@gmail.com",
+  "name": "Siddharth Shankar",
+  "platform_count": 19,
+  "breach_count": 26,
   "platforms": [
     {
-      "name": "Google"
+      "name": "Google",
+      "domain": "google.com",
+      "id": "116348476156641451962",
+      "display_name": "Sid",
+      "user_types": "GOOGLE_USER",
+      "used_services": "Google Maps",
+      "picture_url": "https://lh3.googleusercontent.com/a/placeholder",
+      "registered": true,
+      "last_seen": "8 Mar 2026",
+      "fields": [
+        { "label": "ID", "value": "116348476156641451962" },
+        { "label": "Name", "value": "Sid" },
+        { "label": "Services Used", "value": "Google Maps" },
+        { "label": "Last Seen", "value": "8 Mar 2026" }
+      ]
     },
     {
-      "name": "Microsoft"
+      "name": "Google Play Games",
+      "domain": "google.com",
+      "id": "g01522002475857627051",
+      "display_name": "dukenukem696",
+      "bio": "Puzzle Master",
+      "last_played": "Asphalt 8 - Car Racing Game",
+      "level": 13,
+      "registered": true,
+      "last_seen": "19 Mar 2017",
+      "fields": [
+        { "label": "Username", "value": "dukenukem696" },
+        { "label": "Bio", "value": "Puzzle Master" },
+        { "label": "Level", "value": "13" },
+        { "label": "Last Played", "value": "Asphalt 8 - Car Racing Game" },
+        { "label": "Last Seen", "value": "19 Mar 2017" }
+      ]
     },
     {
-      "name": "LinkedIn"
+      "name": "Microsoft",
+      "domain": "microsoft.com",
+      "display_name": "Siddharth Shankar",
+      "location": "IN",
+      "registered": true,
+      "live_account": true,
+      "last_seen": "5 Mar 2026",
+      "created": "9 Sep 2012",
+      "fields": [
+        { "label": "Name", "value": "Siddharth Shankar" },
+        { "label": "Country", "value": "IN" },
+        { "label": "Live Account", "value": "Yes" },
+        { "label": "Created", "value": "9 Sep 2012" },
+        { "label": "Last Seen", "value": "5 Mar 2026" }
+      ]
     },
     {
-      "name": "Dropbox"
+      "name": "LinkedIn",
+      "domain": "linkedin.com",
+      "display_name": "Siddharth Shankar",
+      "username": "siddharth-shankar-502079100",
+      "bio": "Founder & Director",
+      "location": "Madhya Pradesh, India",
+      "profile_url": "https://linkedin.com/in/siddharth-shankar-502079100",
+      "registered": true,
+      "private": false,
+      "fields": [
+        { "label": "Name", "value": "Siddharth Shankar" },
+        { "label": "Username", "value": "siddharth-shankar-502079100" },
+        { "label": "Bio", "value": "Founder & Director" },
+        { "label": "Location", "value": "Madhya Pradesh, India" },
+        { "label": "Profile", "value": "linkedin.com/in/siddharth-shankar-502079100" }
+      ]
     },
     {
-      "name": "Upwork"
+      "name": "Upwork",
+      "domain": "upwork.com",
+      "id": "424258447492284416",
+      "display_name": "Siddharth G.",
+      "location": "Gwalior, IN",
+      "registered": true,
+      "fields": [
+        { "label": "ID", "value": "424258447492284416" },
+        { "label": "Name", "value": "Siddharth G." },
+        { "label": "Location", "value": "Gwalior, India" }
+      ]
     },
     {
-      "name": "Trello"
+      "name": "Gravatar",
+      "domain": "gravatar.com",
+      "display_name": "BuzzBringer",
+      "username": "ackhnemedes",
+      "bio": "Here's what's what!",
+      "location": "Bombay",
+      "email": "whatsup@buzzbringer.com",
+      "accounts": "https://x.com/BuzzBringer",
+      "registered": true,
+      "fields": [
+        { "label": "Username", "value": "ackhnemedes" },
+        { "label": "Display Name", "value": "BuzzBringer" },
+        { "label": "Bio", "value": "Here's what's what!" },
+        { "label": "Location", "value": "Bombay" },
+        { "label": "Linked Account", "value": "x.com/BuzzBringer" }
+      ]
     },
     {
-      "name": "Flickr"
+      "name": "Trello",
+      "domain": "trello.com",
+      "id": "5d98f1589f3e0f05555e060e",
+      "display_name": "Murdoch Guevara",
+      "username": "murdochguevara",
+      "registered": true,
+      "last_seen": "6 Oct 2019",
+      "fields": [
+        { "label": "Name", "value": "Murdoch Guevara" },
+        { "label": "Username", "value": "murdochguevara" },
+        { "label": "Last Seen", "value": "6 Oct 2019" }
+      ]
     },
     {
-      "name": "Gravatar"
+      "name": "Dropbox",
+      "domain": "dropbox.com",
+      "id": "dbid:AABPYlTrmeyjUOLd87QldS-l-AnA0uMp3eY",
+      "display_name": "siddharth gupta",
+      "registered": true,
+      "verified": true,
+      "fields": [
+        { "label": "Name", "value": "siddharth gupta" },
+        { "label": "Verified", "value": "Yes" },
+        { "label": "Profile Updated", "value": "15 Oct 2017" }
+      ]
     },
     {
-      "name": "AliExpress"
+      "name": "Flickr",
+      "domain": "flickr.com",
+      "id": "87593266@N08",
+      "username": "murrdoc",
+      "registered": true,
+      "created": "22 Sep 2012",
+      "followers": 1,
+      "fields": [
+        { "label": "Username", "value": "murrdoc" },
+        { "label": "Followers", "value": "1" },
+        { "label": "Created", "value": "22 Sep 2012" }
+      ]
     },
     {
-      "name": "PayPal"
+      "name": "Quora",
+      "domain": "quora.com",
+      "id": "65511236",
+      "display_name": "Siddharth Shankar",
+      "registered": true,
+      "created": "7 Nov 2014",
+      "followers": 0,
+      "fields": [
+        { "label": "Name", "value": "Siddharth Shankar" },
+        { "label": "Followers", "value": "0" },
+        { "label": "Created", "value": "7 Nov 2014" }
+      ]
+    },
+    {
+      "name": "AliExpress",
+      "domain": "aliexpress.com",
+      "display_name": "S***h S.",
+      "username": "Siddharth_Shankar",
+      "gender": "Male",
+      "location": "IN",
+      "registered": true,
+      "fields": [
+        { "label": "Username", "value": "Siddharth_Shankar" },
+        { "label": "Gender", "value": "Male" },
+        { "label": "Country", "value": "IN" }
+      ]
+    },
+    {
+      "name": "PayPal",
+      "domain": "paypal.com",
+      "location": "IN",
+      "registered": true,
+      "fields": [
+        { "label": "Country", "value": "IN" }
+      ]
+    },
+    {
+      "name": "Adobe",
+      "domain": "adobe.com",
+      "email_hint": "s***1@g***l.com",
+      "status": "active",
+      "type": "individual",
+      "auth_providers": ["Google", "Apple", "Password"],
+      "registered": true,
+      "fields": [
+        { "label": "Email Hint", "value": "s***1@g***l.com" },
+        { "label": "Status", "value": "Active" },
+        { "label": "Type", "value": "Individual" },
+        { "label": "Auth", "value": "Google, Apple, Password" }
+      ]
+    },
+    {
+      "name": "Apple",
+      "domain": "apple.com",
+      "phone_hint": "****** ***85",
+      "has_multiple_emails": false,
+      "registered": true,
+      "fields": [
+        { "label": "Phone Hint", "value": "****** ***85" }
+      ]
+    },
+    {
+      "name": "Wix",
+      "domain": "wix.com",
+      "id": "b37d6574-3ad8-42a7-8ec8-eb05207e43f2",
+      "social_login": "Google",
+      "has_password": false,
+      "registered": true,
+      "fields": [
+        { "label": "Social Login", "value": "Google" },
+        { "label": "Has Password", "value": "No" }
+      ]
+    },
+    {
+      "name": "OpenAI",
+      "domain": "openai.com",
+      "auth_providers": ["Google"],
+      "registered": true,
+      "email_confirmed": true,
+      "fields": [
+        { "label": "Auth", "value": "Google" },
+        { "label": "Email Confirmed", "value": "Yes" }
+      ]
+    },
+    {
+      "name": "New York Times",
+      "domain": "nytimes.com",
+      "id": "189545440",
+      "status": "ENABLED",
+      "auth_providers": ["Google"],
+      "registered": true,
+      "fields": [
+        { "label": "Status", "value": "Enabled" },
+        { "label": "Auth", "value": "Google" }
+      ]
+    },
+    {
+      "name": "Etsy",
+      "domain": "etsy.com",
+      "display_name": "siddharth",
+      "registered": true,
+      "fields": [
+        { "label": "Name", "value": "siddharth" }
+      ]
+    },
+    {
+      "name": "Google Maps",
+      "domain": "maps.google.com",
+      "id": "116348476156641451962",
+      "display_name": "Sid",
+      "reviews": 56,
+      "ratings": 18,
+      "photos": 20,
+      "videos": 3,
+      "answers": 72,
+      "registered": true,
+      "fields": [
+        { "label": "Reviews", "value": "56" },
+        { "label": "Ratings", "value": "18" },
+        { "label": "Photos", "value": "20" },
+        { "label": "Videos", "value": "3" },
+        { "label": "Answers", "value": "72" }
+      ]
     }
   ],
   "breaches": [
-    {
-      "name": "TXTBASE",
-      "date": "Feb 2025",
-      "records": "284,132,969",
-      "severity": "high",
-      "description": "Stealer log credential dump. Contains email and password pairs.",
-      "source_url": ""
-    },
-    {
-      "name": "Data Troll",
-      "date": "Jun 2025",
-      "records": "109,532,219",
-      "severity": "high",
-      "description": "Stealer log credential dump. Contains email and password pairs.",
-      "source_url": ""
-    },
-    {
-      "name": "Synthient",
-      "date": "Apr 2025",
-      "records": "182,962,095",
-      "severity": "medium",
-      "description": "Credential stuffing database. Email and password combinations.",
-      "source_url": ""
-    },
-    {
-      "name": "SoundCloud",
-      "date": "Dec 2025",
-      "records": "29,815,722",
-      "severity": "medium",
-      "description": "Music platform breach. Emails, usernames, geographic locations exposed.",
-      "source_url": "https://soundcloud.com"
-    },
-    {
-      "name": "Raaga.com",
-      "date": "Dec 2025",
-      "records": "10,225,145",
-      "severity": "low",
-      "description": "Indian music streaming platform. Emails, dates of birth, names exposed.",
-      "source_url": "https://raaga.com"
-    }
+    { "name": "Tumblr", "domain": "tumblr.com", "date": "28 Feb 2013", "records": "65,469,298", "severity": "high", "description": "Email credentials exposed in major platform breach.", "breached_data": ["Email addresses", "Passwords"], "source_url": "https://tumblr.com" },
+    { "name": "Exploit.In", "domain": "", "date": "13 Oct 2016", "records": "593,427,119", "severity": "high", "description": "Massive credential stuffing compilation.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Zomato", "domain": "zomato.com", "date": "17 May 2017", "records": "16,472,873", "severity": "high", "description": "Indian food delivery platform breach exposing account credentials.", "breached_data": ["Email addresses", "Passwords", "Usernames"], "source_url": "https://zomato.com" },
+    { "name": "8tracks", "domain": "8tracks.com", "date": "27 Jun 2017", "records": "17,979,961", "severity": "medium", "description": "Music playlist service breach.", "breached_data": ["Email addresses", "Passwords"], "source_url": "https://8tracks.com" },
+    { "name": "Yatra", "domain": "yatra.com", "date": "1 Sep 2013", "records": "5,033,997", "severity": "high", "description": "Indian travel platform breach exposing personal and financial data.", "breached_data": ["Dates of birth", "Email addresses", "Names", "Passwords", "Phone numbers", "Physical addresses", "PINs"], "source_url": "https://yatra.com" },
+    { "name": "Collection #1", "domain": "", "date": "7 Jan 2019", "records": "772,904,991", "severity": "high", "description": "Massive credential collection compiled from multiple breaches.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Verifications.io", "domain": "verifications.io", "date": "25 Feb 2019", "records": "763,117,241", "severity": "high", "description": "Email verification service exposed extensive personal profiles.", "breached_data": ["Dates of birth", "Email addresses", "Employers", "Genders", "Geographic locations", "IP addresses", "Job titles", "Names", "Phone numbers", "Physical addresses"], "source_url": "https://verifications.io" },
+    { "name": "Canva", "domain": "canva.com", "date": "24 May 2019", "records": "137,272,116", "severity": "medium", "description": "Design platform breach exposing user account data.", "breached_data": ["Email addresses", "Geographic locations", "Names", "Passwords", "Usernames"], "source_url": "https://canva.com" },
+    { "name": "Data Enrichment Exposure From PDL Customer", "domain": "", "date": "16 Oct 2019", "records": "622,161,052", "severity": "high", "description": "Data broker exposure of enriched personal profiles.", "breached_data": ["Email addresses", "Employers", "Geographic locations", "Job titles", "Names", "Phone numbers", "Social media profiles"], "source_url": "" },
+    { "name": "Zynga", "domain": "zynga.com", "date": "1 Sep 2019", "records": "172,869,660", "severity": "high", "description": "Mobile gaming company breach.", "breached_data": ["Email addresses", "Passwords", "Phone numbers", "Usernames"], "source_url": "https://zynga.com" },
+    { "name": "Nitro", "domain": "gonitro.com", "date": "28 Sep 2020", "records": "77,159,696", "severity": "medium", "description": "PDF productivity tool breach.", "breached_data": ["Email addresses", "Names", "Passwords"], "source_url": "https://gonitro.com" },
+    { "name": "ClearVoice Surveys", "domain": "clearvoicesurveys.com", "date": "23 Aug 2015", "records": "15,074,786", "severity": "medium", "description": "Survey platform breach exposing personal details.", "breached_data": ["Dates of birth", "Email addresses", "Genders", "IP addresses", "Names", "Passwords", "Phone numbers", "Physical addresses"], "source_url": "https://clearvoicesurveys.com" },
+    { "name": "Domino's India", "domain": "dominos.co.in", "date": "24 Mar 2021", "records": "22,527,655", "severity": "high", "description": "Indian pizza delivery chain breach exposing customer orders.", "breached_data": ["Email addresses", "Names", "Phone numbers", "Physical addresses", "Purchases"], "source_url": "https://dominos.co.in" },
+    { "name": "IndiaMART", "domain": "indiamart.com", "date": "23 May 2021", "records": "20,154,583", "severity": "medium", "description": "Indian B2B marketplace breach.", "breached_data": ["Email addresses", "Names", "Phone numbers", "Physical addresses"], "source_url": "https://indiamart.com" },
+    { "name": "Gravatar", "domain": "gravatar.com", "date": "3 Oct 2020", "records": "113,990,759", "severity": "medium", "description": "Avatar service profile data exposed.", "breached_data": ["Email addresses", "Names", "Usernames"], "source_url": "https://gravatar.com" },
+    { "name": "Twitter (200M)", "domain": "twitter.com", "date": "1 Jan 2021", "records": "211,524,284", "severity": "high", "description": "Massive Twitter data scrape exposing public and private profile data.", "breached_data": ["Email addresses", "Names", "Social media profiles", "Usernames"], "source_url": "https://twitter.com" },
+    { "name": "Naz.API", "domain": "", "date": "20 Sep 2023", "records": "70,840,771", "severity": "high", "description": "Credential stuffing compilation.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Combolists Posted to Telegram", "domain": "", "date": "28 May 2024", "records": "361,468,099", "severity": "high", "description": "Leaked credential combolists shared on Telegram.", "breached_data": ["Email addresses", "Passwords", "Usernames"], "source_url": "" },
+    { "name": "Stealer Logs Posted to Telegram", "domain": "", "date": "18 Jul 2024", "records": "26,105,473", "severity": "high", "description": "Malware-harvested credentials posted publicly.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Stealer Logs Jan 2025", "domain": "", "date": "13 Jan 2025", "records": "71,039,833", "severity": "high", "description": "Fresh stealer log dump from malware campaigns.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "TXTBASE", "domain": "", "date": "15 Feb 2025", "records": "284,132,969", "severity": "high", "description": "Stealer log credential dump. Contains email and password pairs.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Data Troll Stealer Logs", "domain": "", "date": "20 Jun 2025", "records": "109,532,219", "severity": "high", "description": "Stealer log credential dump.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Synthient Stealer Log", "domain": "", "date": "11 Apr 2025", "records": "182,962,095", "severity": "medium", "description": "Credential stuffing threat database.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Synthient Credential Stuffing", "domain": "", "date": "11 Apr 2025", "records": "1,957,476,021", "severity": "high", "description": "Massive credential stuffing threat database.", "breached_data": ["Email addresses", "Passwords"], "source_url": "" },
+    { "name": "Raaga", "domain": "raaga.com", "date": "15 Dec 2025", "records": "10,225,145", "severity": "medium", "description": "Indian music streaming platform breach.", "breached_data": ["Ages", "Dates of birth", "Email addresses", "Genders", "Geographic locations", "Names", "Passwords"], "source_url": "https://raaga.com" },
+    { "name": "SoundCloud", "domain": "soundcloud.com", "date": "15 Dec 2025", "records": "29,815,722", "severity": "medium", "description": "Music platform breach exposing user profiles.", "breached_data": ["Avatars", "Email addresses", "Geographic locations", "Names", "Profile statistics", "Usernames"], "source_url": "https://soundcloud.com" }
   ],
   "fields": [
-    {
-      "label": "Full Name",
-      "value": "Siddharth Shankar"
-    },
-    {
-      "label": "Location",
-      "value": "Gwalior, Madhya Pradesh, India"
-    },
-    {
-      "label": "Username",
-      "value": "dukenukem696"
-    },
-    {
-      "label": "LinkedIn",
-      "value": "linkedin.com/in/siddharth-shankar-502079100"
-    },
-    {
-      "label": "Phone Hint",
-      "value": "****** ***85"
-    }
+    { "label": "Full Name", "value": "Siddharth Shankar" },
+    { "label": "Location", "value": "Gwalior, Madhya Pradesh, India" },
+    { "label": "Username", "value": "dukenukem696" },
+    { "label": "LinkedIn", "value": "linkedin.com/in/siddharth-shankar-502079100" },
+    { "label": "Phone Hint", "value": "****** ***85" }
   ],
   "stats": {
     "registered_modules": 22,
@@ -111,196 +320,102 @@
     "unique_usernames": 6,
     "total_locations": 71,
     "earliest_year": 2012,
-    "years_of_history": 13,
+    "years_of_history": 14,
     "unique_cities": 3
   },
   "identity": {
-    "names": [
-      "Siddharth Shankar",
-      "siddharth gupta",
-      "Sid",
-      "BuzzBringer"
-    ],
-    "usernames": [
-      "dukenukem696",
-      "murrdoc",
-      "ackhnemedes",
-      "murdochguevara",
-      "Siddharth_Shankar"
-    ],
+    "names": ["Siddharth Shankar", "siddharth gupta", "Sid", "BuzzBringer", "Murdoch Guevara"],
+    "usernames": ["dukenukem696", "murrdoc", "ackhnemedes", "murdochguevara", "Siddharth_Shankar"],
     "ids": [
-      {
-        "id": "116348476156641451962",
-        "platform": "Google"
-      },
-      {
-        "id": "424258447492284416",
-        "platform": "Upwork"
-      }
+      { "id": "116348476156641451962", "platform": "Google" },
+      { "id": "424258447492284416", "platform": "Upwork" },
+      { "id": "87593266@N08", "platform": "Flickr" },
+      { "id": "5d98f1589f3e0f05555e060e", "platform": "Trello" },
+      { "id": "65511236", "platform": "Quora" },
+      { "id": "189545440", "platform": "New York Times" },
+      { "id": "b37d6574-3ad8-42a7-8ec8-eb05207e43f2", "platform": "Wix" },
+      { "id": "g01522002475857627051", "platform": "Google Play Games" },
+      { "id": "dbid:AABPYlTrmeyjUOLd87QldS-l-AnA0uMp3eY", "platform": "Dropbox" }
     ],
-    "bios": [
-      "Puzzle Master",
-      "Here's what's what!",
-      "Founder & Director"
-    ],
-    "social_connections": [
-      "google"
-    ],
-    "auth_providers": [
-      "Google",
-      "Apple",
-      "Password"
-    ]
+    "bios": ["Puzzle Master", "Here's what's what!", "Founder & Director"],
+    "social_connections": ["google"],
+    "auth_providers": ["Google", "Apple", "Password"]
   },
   "locations": [
-    {
-      "platform": "Google Maps",
-      "lat": "30.1238",
-      "lng": "78.3289",
-      "address": "Near Dharamraj Mandir, Yamkeshwar, Uttarakhand",
-      "city": "Rishikesh",
-      "date": "25 Oct 2025",
-      "title": "Google Maps Review",
-      "subtitle": "At Namaste Ayurvedas Centre",
-      "comment": "Awesome is the word! Go for it!!!",
-      "source_url": ""
-    },
-    {
-      "platform": "Google Maps",
-      "lat": "26.2062",
-      "lng": "78.1955",
-      "address": "Anupam Nagar, Gwalior, Madhya Pradesh",
-      "city": "Gwalior",
-      "date": "10 Jul 2025",
-      "title": "Google Maps Review",
-      "subtitle": "At J P Associates",
-      "comment": "",
-      "source_url": ""
-    }
+    { "platform": "Google Maps", "lat": "30.1238", "lng": "78.3289", "address": "Near Dharamraj Mandir, Yamkeshwar, Uttarakhand 249302", "city": "Rishikesh", "date": "25 Oct 2025", "title": "Google Maps Review", "subtitle": "At Namaste Ayurvedas Centre", "comment": "Awesome is the word! Go for it!!!", "source_url": "https://www.google.com/maps/contrib/116348476156641451962/place/ChIJIXSzTM0XCTkR3TNRBFIhmyM" },
+    { "platform": "Google Maps", "lat": "-34.5778", "lng": "-58.4381", "address": "Nicaragua 6055, Palermo, Buenos Aires, Argentina", "city": "Buenos Aires", "date": "21 Aug 2025", "title": "Google Maps Review", "subtitle": "At MGNI (M. Götz Negocios Inmobiliarios)", "comment": "Max is a Great person to work with. Great communication skills and very attention to detail oriented. Looking forward to get the deal done with him.", "source_url": "https://www.google.com/maps/contrib/116348476156641451962/place/ChIJnR99cdHKvJURiGbl2R-t_t0" },
+    { "platform": "Google Maps", "lat": "26.4832", "lng": "74.5668", "address": "Jamni Kund Road, Pushkar, Rajasthan 305022", "city": "Pushkar", "date": "3 Aug 2025", "title": "Google Maps Review", "subtitle": "At A Blue Star Garden Restaurant and Home Stay", "comment": "What a beautiful place. Words can't describe, the hospitality the love and the wisdom. The rooms are beautiful and the view even better! Best Israeli food in Pushkar!!", "source_url": "https://www.google.com/maps/contrib/116348476156641451962/place/ChIJn0boZxbdazkRhZq2RWs1fek" },
+    { "platform": "Google Maps", "lat": "26.2063", "lng": "78.1955", "address": "Anupam Nagar, Gwalior, Madhya Pradesh 474011", "city": "Gwalior", "date": "10 Jul 2025", "title": "Google Maps Review", "subtitle": "At J P Associates", "comment": "Absolutely Amazing. Feel safe with them, they'll make sure you are taken care of.", "source_url": "https://www.google.com/maps/contrib/116348476156641451962/place/ChIJ3eoBOwTEdjkRCJUGy2_GcnM" },
+    { "platform": "Google Maps", "lat": "26.1934", "lng": "78.1562", "address": "Near Ss Kachoriwala, Naya Bazaar, Gwalior, Madhya Pradesh 474009", "city": "Gwalior", "date": "12 Apr 2025", "title": "Google Maps Review", "subtitle": "At Wanderer Tattoos", "comment": "Best Tattoo artist in Gwalior… period!! A tattoo is forever and Anmol knows how to do it!!", "source_url": "https://www.google.com/maps/contrib/116348476156641451962/place/ChIJras5qszFdjkRfJ8IbfUvrzY" }
   ],
   "events": [
-    {
-      "date": "8 Mar 2026",
-      "source": "Google",
-      "content": "Last seen"
-    },
-    {
-      "date": "5 Mar 2026",
-      "source": "Microsoft",
-      "content": "Last seen"
-    },
-    {
-      "date": "25 Oct 2025",
-      "source": "Google Maps",
-      "content": "Review posted: Awesome is the word! Go for it!!!"
-    },
-    {
-      "date": "9 Sep 2012",
-      "source": "Microsoft",
-      "content": "Account created"
-    }
+    { "date": "8 Mar 2026", "source": "Google", "content": "Last seen" },
+    { "date": "5 Mar 2026", "source": "Microsoft", "content": "Last seen" },
+    { "date": "5 Mar 2026", "source": "Microsoft", "content": "Last Updated OneDrive Data" },
+    { "date": "25 Oct 2025", "source": "Google Maps", "content": "Review: Awesome is the word! Go for it!!!" },
+    { "date": "21 Aug 2025", "source": "Google Maps", "content": "Review: Max is a Great person to work with." },
+    { "date": "3 Aug 2025", "source": "Google Maps", "content": "Review: What a beautiful place. Best Israeli food in Pushkar!!" },
+    { "date": "3 Aug 2025", "source": "Google Maps", "content": "Picture Updated" },
+    { "date": "26 Jul 2025", "source": "Google Maps", "content": "Review posted at Zostel Pushkar" },
+    { "date": "10 Jul 2025", "source": "Google Maps", "content": "Review: Absolutely Amazing. Feel safe with them." },
+    { "date": "15 May 2024", "source": "Microsoft", "content": "Account Profile Last Updated" },
+    { "date": "30 Apr 2024", "source": "Microsoft", "content": "Profile Picture Updated" },
+    { "date": "4 Mar 2024", "source": "Microsoft", "content": "Account Settings Last Updated" },
+    { "date": "9 Jan 2024", "source": "Google Maps", "content": "Review: Bland tasteless piece of bread for which i paid 400 rs." },
+    { "date": "31 Dec 2023", "source": "Google Maps", "content": "Picture Updated" },
+    { "date": "30 Dec 2023", "source": "Google Maps", "content": "Review: Gods own home. Jai Sri Hari" },
+    { "date": "28 Apr 2023", "source": "Microsoft", "content": "Account Name Changed" },
+    { "date": "15 Oct 2017", "source": "Dropbox", "content": "Picture Updated (Profile Picture)" },
+    { "date": "6 Oct 2019", "source": "Trello", "content": "Last seen" },
+    { "date": "7 Nov 2014", "source": "Quora", "content": "Account Registered" },
+    { "date": "22 Sep 2012", "source": "Flickr", "content": "Account Registered" },
+    { "date": "9 Sep 2012", "source": "Microsoft", "content": "Account Registered" },
+    { "date": "9 Sep 2012", "source": "Microsoft", "content": "Started Using OneDrive" }
   ],
   "also_registered": [
-    {
-      "name": "Freelancer"
-    },
-    {
-      "name": "Pinterest"
-    },
-    {
-      "name": "Twitter"
-    },
-    {
-      "name": "Instagram"
-    },
-    {
-      "name": "Spotify"
-    },
-    {
-      "name": "Naukri"
-    },
-    {
-      "name": "WordPress"
-    },
-    {
-      "name": "Tumblr"
-    }
+    { "name": "Freelancer", "domain": "freelancer.com" },
+    { "name": "HubPages", "domain": "hubpages.com" },
+    { "name": "Disqus", "domain": "disqus.com" },
+    { "name": "Fiverr", "domain": "fiverr.com" },
+    { "name": "Imgur", "domain": "imgur.com" },
+    { "name": "Pinterest", "domain": "pinterest.com" },
+    { "name": "Twitter", "domain": "x.com" },
+    { "name": "Vimeo", "domain": "vimeo.com" },
+    { "name": "WordPress", "domain": "wordpress.com" },
+    { "name": "Anydo", "domain": "any.do" },
+    { "name": "Instagram", "domain": "instagram.com" },
+    { "name": "Spotify", "domain": "spotify.com" },
+    { "name": "Tumblr", "domain": "tumblr.com" },
+    { "name": "The Economic Times", "domain": "economictimes.indiatimes.com" },
+    { "name": "Zoho", "domain": "zoho.com" },
+    { "name": "Gaana", "domain": "gaana.com" },
+    { "name": "EA", "domain": "ea.com" },
+    { "name": "Naukri", "domain": "naukri.com" },
+    { "name": "Placeit", "domain": "placeit.net" },
+    { "name": "TED", "domain": "ted.com" },
+    { "name": "Envato", "domain": "envato.com" },
+    { "name": "XVideos", "domain": "xvideos.com" }
   ],
   "city_groups": [
-    {
-      "city": "Gwalior",
-      "count": 3
-    },
-    {
-      "city": "Pushkar",
-      "count": 2
-    },
-    {
-      "city": "Rishikesh",
-      "count": 1
-    }
+    { "city": "Gwalior", "count": 42 },
+    { "city": "Pushkar", "count": 8 },
+    { "city": "Rishikesh", "count": 6 },
+    { "city": "Manali", "count": 5 },
+    { "city": "Buenos Aires", "count": 1 }
   ],
   "year_groups": [
-    {
-      "year": 2012,
-      "count": 1
-    },
-    {
-      "year": 2014,
-      "count": 1
-    },
-    {
-      "year": 2017,
-      "count": 1
-    },
-    {
-      "year": 2019,
-      "count": 2
-    },
-    {
-      "year": 2024,
-      "count": 1
-    },
-    {
-      "year": 2025,
-      "count": 5
-    },
-    {
-      "year": 2026,
-      "count": 2
-    }
-  ],
-  "removal_account_guides": [
-    {
-      "platform": "Google",
-      "platform_url": "https://myaccount.google.com",
-      "link": "https://support.google.com/accounts/answer/32046",
-      "difficulty": "Easy",
-      "time": "5 min",
-      "removes": "Google account and associated data",
-      "escalation": "Contact Google support if unable to delete"
-    },
-    {
-      "platform": "LinkedIn",
-      "platform_url": "https://linkedin.com",
-      "link": "https://www.linkedin.com/help/linkedin/answer/63",
-      "difficulty": "Easy",
-      "time": "5 min",
-      "removes": "LinkedIn profile and connections",
-      "escalation": "Email privacy@linkedin.com"
-    }
-  ],
-  "removal_breach_guides": [
-    {
-      "breach_name": "TXTBASE",
-      "platform": "TXTBASE",
-      "platform_url": "",
-      "link": "https://haveibeenpwned.com/",
-      "difficulty": "Hard",
-      "time": "N/A",
-      "removes": "Cannot remove from stealer logs \u2014 change all passwords immediately",
-      "escalation": "Enable 2FA on all accounts"
-    }
+    { "year": 2012, "count": 3 },
+    { "year": 2014, "count": 1 },
+    { "year": 2017, "count": 8 },
+    { "year": 2018, "count": 6 },
+    { "year": 2019, "count": 12 },
+    { "year": 2020, "count": 4 },
+    { "year": 2021, "count": 3 },
+    { "year": 2022, "count": 5 },
+    { "year": 2023, "count": 9 },
+    { "year": 2024, "count": 8 },
+    { "year": 2025, "count": 18 },
+    { "year": 2026, "count": 3 }
   ],
   "maps_api_key": "PASTE_GOOGLE_MAPS_API_KEY"
 }
