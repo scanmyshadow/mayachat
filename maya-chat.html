@@ -565,9 +565,9 @@ function showWelcome() {
   setTimeout(() => {
     if (isPaid) {
       document.getElementById('header-sub').textContent = 'Your report assistant. Ask me anything.';
-      addBubble('maya', "Namaste. I can see you have a report with us.\n\nAsk me what a finding means, whether something is serious, or what to do next.");
+      addBubble('maya', "Namaste. I can see you have a report with us.\n\nAsk me what a finding means, whether something is serious, or what to do next.\n\nChats may be reviewed to help Maya improve.");
     } else {
-      addBubble('maya', "Namaste. I am Maya.\n\nI can answer questions about Scan My Shadow, how it works, what we scan, and what happens to your data.\n\nWhat would you like to know?");
+      addBubble('maya', "Namaste. I am Maya.\n\nI can answer questions about Scan My Shadow, how it works, what we scan, and what happens to your data.\n\nChats may be reviewed to help Maya improve.\n\nWhat would you like to know?");
     }
   }, 400);
 }
