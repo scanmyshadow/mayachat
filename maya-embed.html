@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Maya</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #d4af37;
+  --gold-border: rgba(212,175,55,0.28);
+  --panel: #131212;
+  --border: rgba(255,255,255,0.12);
+  --text: #f7f3e8;
+  --muted: rgba(247,243,232,0.62);
+  --soft: rgba(247,243,232,0.46);
+  --vvh: 100dvh;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--panel);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15.2px;
+  color: var(--text);
+  overflow: hidden;
+}
+
+#chat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,175,55,0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+    var(--panel);
+}
+
+/* Header */
+.chat-header {
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(255,255,255,0.015));
+  flex-shrink: 0;
+}
+.chat-header-top { display: flex; align-items: center; gap: 12px; }
+.maya-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #7a5f10);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; font-weight: 800; color: #000; flex-shrink: 0; position: relative;
+}
+.maya-avatar::after {
+  content: ''; position: absolute; bottom: 1px; right: 1px;
+  width: 10px; height: 10px; background: #3ecf8e; border-radius: 50%;
+  border: 2px solid #141214;
+}
+.maya-info { flex: 1; }
+.maya-name { font-size: 19px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 4px; }
+.maya-role { font-size: 12.2px; color: var(--muted); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.chat-header-sub { margin-top: 11px; font-size: 12.8px; color: rgba(247,243,232,0.64); font-weight: 500; line-height: 1.5; }
+
+/* Messages */
+#messages {
+  flex: 1; overflow-y: auto; padding: 18px 18px 10px;
+  display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth;
+}
+#messages::-webkit-scrollbar { width: 3px; }
+#messages::-webkit-scrollbar-track { background: transparent; }
+#messages::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 2px; }
+
+.bubble {
+  max-width: 84%; padding: 11px 14px; border-radius: 18px;
+  font-size: 15px; line-height: 1.58;
+  animation: bubble-in 0.3s cubic-bezier(0.16,1,0.3,1) both;
+  white-space: pre-wrap; overflow-wrap: break-word; word-break: break-word;
+}
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.bubble.maya {
+  align-self: flex-start; background: rgba(255,255,255,0.055);
+  border: 1px solid var(--border); color: var(--text); border-bottom-left-radius: 6px;
+}
+.bubble.user {
+  align-self: flex-end; background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #000; font-weight: 700; border-bottom-right-radius: 6px;
+}
+.bubble a { color: var(--gold); }
+
+.typing-dots { display: flex; gap: 5px; align-items: center; padding: 12px 16px; }
+.typing-dots span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  opacity: 0.4; animation: typing 1.2s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50% { opacity: 0.9; transform: translateY(-3px); }
+}
+
+.cap-note {
+  text-align: center; font-size: 12.2px; color: var(--muted);
+  padding: 8px 12px; background: rgba(255,255,255,0.04);
+  border-radius: 10px; border: 1px solid var(--border); margin: 4px auto; max-width: 90%;
+}
+
+.gold-divider {
+  height: 1px; flex-shrink: 0;
+  background: linear-gradient(to right, transparent, var(--gold-border), transparent);
+}
+
+/* Footer */
+.chat-footer {
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  display: flex; gap: 10px; align-items: flex-end; flex-shrink: 0;
+  background: rgba(0,0,0,0.24);
+}
+#chat-input {
+  flex: 1; background: rgba(255,255,255,0.055); border: 1px solid var(--border);
+  border-radius: 13px; padding: 11px 14px; color: var(--text);
+  font-family: Inter, system-ui, sans-serif; font-size: 15px; resize: none; outline: none;
+  min-height: 44px; max-height: 86px; line-height: 1.5;
+  transition: border-color 0.2s, background 0.2s;
+}
+#chat-input::placeholder { color: var(--soft); }
+#chat-input:focus { border-color: var(--gold-border); background: rgba(255,255,255,0.075); }
+#send-btn {
+  width: 42px; height: 42px; border-radius: 13px;
+  background: linear-gradient(180deg, #d4af37, #b8962e); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: transform 0.15s ease, opacity 0.15s;
+}
+#send-btn:hover { transform: scale(1.05); }
+#send-btn:active { transform: scale(0.95); }
+#send-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+#send-btn svg { width: 18px; height: 18px; fill: #000; }
+
+@media (max-width: 480px) {
+  #messages { padding: 15px 14px 8px; }
+  .bubble { max-width: 88%; font-size: 14.6px; }
+  #chat-input { max-height: 72px; font-size: 14.8px; }
+}
+</style>
+</head>
+<body>
+<div id="chat">
+  <div class="chat-header">
+    <div class="chat-header-top">
+      <div class="maya-avatar">M</div>
+      <div class="maya-info">
+        <div class="maya-name">Maya</div>
+        <div class="maya-role">Privacy Assistant</div>
+      </div>
+    </div>
+    <div class="chat-header-sub">Ask me anything about your privacy, or how this works.</div>
+  </div>
+
+  <div id="messages"></div>
+
+  <div class="gold-divider"></div>
+
+  <div class="chat-footer">
+    <textarea id="chat-input" placeholder="Type a message..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button id="send-btn" onclick="sendMessage()" disabled>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const WEBHOOK_VISITOR = 'https://hook.eu1.make.com/ne7fdtchxqy2ods89qg7yw0iicv05gqi';
+
+const HINDI_VAGUE = ['karna kya hai', 'kya karna hai', 'kya karna', 'kya hai ye', 'kya hai yeh', 'batao', 'bolo', 'samjhao', 'kya kare', 'kya karu', 'kaise kare', 'kaise karu', 'kya hoga'];
+const ENGLISH_VAGUE = ['what to do', 'what is this', 'what can you do', 'how does this work', 'tell me more', 'explain this'];
+
+const VAGUE_REPLY_HINDI = "Main Maya hoon — Scan My Shadow ki Privacy Assistant. \u{1F60A}\n\nAap mujhse ye pooch sakte ho:\n\u2022 Scan kaise kaam karta hai?\n\u2022 Phone ya email \u2014 kya scan hoga?\n\u2022 Report kitne time mein milegi?\n\u2022 Kya mera data safe rahega?\n\u2022 Pricing kya hai?\n\nKya jaanna chahte ho?";
+const VAGUE_REPLY_ENGLISH = "I'm Maya, Scan My Shadow's Privacy Assistant. \u{1F60A}\n\nYou can ask me:\n\u2022 How the scan works\n\u2022 What gets scanned \u2014 phone and email\n\u2022 How long the report takes\n\u2022 How your data is kept safe\n\u2022 Pricing\n\nWhat would you like to know?";
+
+let messageCount = 0;
+let capReached = false;
+let sessionId = null;
+
+function init() {
+  sessionId = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+  setViewportHeight();
+  enableInput();
+  showWelcome();
+  setTimeout(() => document.getElementById('chat-input').focus(), 300);
+}
+
+function setViewportHeight() {
+  const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  document.documentElement.style.setProperty('--vvh', height + 'px');
+}
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', setViewportHeight);
+  window.visualViewport.addEventListener('scroll', setViewportHeight);
+}
+window.addEventListener('resize', setViewportHeight);
+
+function showWelcome() {
+  setTimeout(() => {
+    addBubble('maya', "Namaste. I am Maya.\n\nI can answer questions about Scan My Shadow, how it works, what we scan, and what happens to your data.\n\nChats may be reviewed to help Maya improve.\n\nWhat would you like to know?");
+  }, 300);
+}
+
+function addBubble(role, text) {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'bubble ' + role;
+  div.innerHTML = text.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'bubble maya typing-indicator';
+  div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  div.id = 'typing';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function hideTyping() {
+  const t = document.getElementById('typing');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text || capReached) return;
+
+  input.value = '';
+  autoResize(input);
+  document.getElementById('send-btn').disabled = true;
+
+  addBubble('user', text);
+
+  if (messageCount === 0) {
+    const lower = text.toLowerCase().trim();
+    const isHindiVague = HINDI_VAGUE.some(p => lower.includes(p));
+    const isEnglishVague = ENGLISH_VAGUE.some(p => lower.includes(p));
+    if (isHindiVague || isEnglishVague) {
+      showTyping();
+      setInputLocked(true);
+      setTimeout(() => {
+        hideTyping();
+        addBubble('maya', isHindiVague ? VAGUE_REPLY_HINDI : VAGUE_REPLY_ENGLISH);
+        setInputLocked(false);
+        document.getElementById('send-btn').disabled = false;
+      }, 700);
+      return;
+    }
+  }
+
+  messageCount++;
+  showTyping();
+  setInputLocked(true);
+
+  try {
+    const payload = {
+      session_id: sessionId,
+      scan_id: null,
+      message: text,
+      message_count: messageCount,
+      message_type: 'Text'
+    };
+    const res = await fetch(WEBHOOK_VISITOR, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    hideTyping();
+
+    if (data.cap_reached || messageCount >= 25) {
+      capReached = true;
+      showCapNote();
+    } else {
+      const reply = data.reply || data.message || "I am sorry, I could not process that. Please try again.";
+      addBubble('maya', reply);
+    }
+  } catch(e) {
+    hideTyping();
+    addBubble('maya', "I'm sorry, could you repeat that?");
+  }
+
+  setInputLocked(false);
+  if (!capReached) {
+    document.getElementById('send-btn').disabled = false;
+    document.getElementById('chat-input').focus();
+  }
+}
+
+function showCapNote() {
+  const msgs = document.getElementById('messages');
+  const note = document.createElement('div');
+  note.className = 'cap-note';
+  note.innerHTML = 'That is all for now. For further help, check our <a href="https://www.scanmyshadow.com/#faq" target="_blank" style="color:var(--gold);text-decoration:underline;">FAQ section</a> or email us at support@scanmyshadow.com';
+  msgs.appendChild(note);
+  msgs.scrollTop = msgs.scrollHeight;
+  setInputLocked(true);
+  document.getElementById('send-btn').disabled = true;
+}
+
+function enableInput() {
+  const input = document.getElementById('chat-input');
+  input.addEventListener('input', () => {
+    document.getElementById('send-btn').disabled = input.value.trim() === '' || capReached;
+  });
+}
+
+function setInputLocked(locked) {
+  const input = document.getElementById('chat-input');
+  input.disabled = locked;
+  if (!locked) input.focus();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    if (!document.getElementById('send-btn').disabled) sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  const max = window.innerWidth <= 480 ? 72 : 86;
+  el.style.height = Math.min(el.scrollHeight, max) + 'px';
+}
+
+init();
+</script>
+</body>
+</html>
